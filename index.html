@@ -1,4 +1,4 @@
-```html
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +24,18 @@
     --ink:#0f1a2e;
     --muted:#5b6579;
   }
-  *{box-sizing:border-box;margin:0;padding:0}
+
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
+
+  html{
+    width:100%;
+    overflow-x:hidden;
+  }
+
   body{
     font-family:'Inter',system-ui,-apple-system,sans-serif;
     background:var(--navy);
@@ -32,17 +43,24 @@
     display:flex;
     justify-content:center;
     align-items:flex-start;
-    padding:32px 16px;
-    min-height:100vh;
-  }
-  .card{
     width:100%;
+    min-height:100vh;
+    min-height:100svh;
+    padding:clamp(16px, 3vh, 32px) 12px;
+    overflow-x:hidden;
+  }
+
+  .card{
+    width:min(100%, 430px);
     max-width:430px;
+    min-width:0;
+    margin-inline:auto;
     background:var(--panel);
     border-radius:14px;
     padding:28px 26px 34px;
     text-align:center;
   }
+
   .banner{
     background:var(--red);
     color:#fff;
@@ -54,20 +72,24 @@
     padding:14px 16px;
     line-height:1.35;
   }
+
   h1{
     margin-top:22px;
-    font-size:40px;
+    font-size:clamp(30px, 8vw, 40px);
     line-height:1.1;
     font-weight:800;
     letter-spacing:-1px;
   }
+
   h1 span{color:var(--green)}
+
   .sub{
     margin-top:16px;
     color:var(--muted);
     font-size:16px;
     line-height:1.55;
   }
+
   .steps{
     margin-top:22px;
     background:var(--navy);
@@ -77,26 +99,51 @@
     display:grid;
     gap:18px;
   }
-  .step{display:flex;align-items:center;gap:14px}
+
+  .step{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    min-width:0;
+  }
+
   .num{
     flex:0 0 auto;
-    width:26px;height:26px;
+    width:26px;
+    height:26px;
     border-radius:50%;
     background:var(--red);
     color:#fff;
-    font-size:13px;font-weight:700;
-    display:flex;align-items:center;justify-content:center;
+    font-size:13px;
+    font-weight:700;
+    display:flex;
+    align-items:center;
+    justify-content:center;
   }
-  .step p{color:#fff;font-size:16px;font-weight:500;line-height:1.35}
+
+  .step p{
+    color:#fff;
+    font-size:16px;
+    font-weight:500;
+    line-height:1.35;
+    min-width:0;
+  }
+
   .social{
     margin-top:22px;
     font-weight:700;
     font-size:17px;
     line-height:1.4;
   }
-  .social em{color:var(--red);font-style:normal}
+
+  .social em{
+    color:var(--red);
+    font-style:normal;
+  }
+
   .cta{
     display:inline-block;
+    max-width:100%;
     margin-top:30px;
     background:var(--red);
     color:#fff;
@@ -107,24 +154,59 @@
     border-radius:999px;
     transition:transform .15s ease, filter .15s ease;
   }
-  .cta:hover{filter:brightness(1.08);transform:translateY(-1px)}
+
+  .cta:hover{
+    filter:brightness(1.08);
+    transform:translateY(-1px);
+  }
+
   .badges{
     margin-top:28px;
     display:flex;
     justify-content:center;
     gap:26px;
   }
-  .badges svg{width:30px;height:30px}
+
+  .badges svg{
+    width:30px;
+    height:30px;
+  }
+
   .disclaimer{
     margin-top:24px;
     font-size:12px;
     color:#9aa3b2;
     line-height:1.6;
   }
-  @media(max-width:420px){h1{font-size:33px}}
+
+  @media(max-width:420px){
+    .card{
+      padding:24px 20px 30px;
+    }
+  }
+
+  @media(max-width:350px){
+    .card{
+      padding:22px 16px 28px;
+    }
+
+    .steps{
+      padding:20px 15px;
+    }
+
+    .cta{
+      padding:16px 24px;
+      font-size:16px;
+    }
+  }
 </style>
 
 <!-- Vercel Analytics -->
+<script>
+  window.va = window.va || function () {
+    (window.vaq = window.vaq || []).push(arguments);
+  };
+</script>
 <script defer src="/_vercel/insights/script.js"></script>
 
 </head>
@@ -156,4 +238,3 @@
   </main>
 </body>
 </html>
-```
